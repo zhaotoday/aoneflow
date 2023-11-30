@@ -1,18 +1,21 @@
 1、开发新特性
 ```
-# 从 master（主干分支）新建 feature/updater（升级特性分支）
+# 开发 [升级器] 特性：
+# 从 master 分支新建 feature/updater 分支，在此分支上进行 [升级器] 特性开发
 $ git checkout master
 $ git checkout -b feature/updater
 $ git push --set-upstream origin feature/updater
 
-# 从 master（主干分支）新建 feature/sync（同步器特性分支）
+# 开发 [同步器] 特性：
+# 从 master 分支新建 feature/sync 分支，在此分支上进行 [同步器] 特性开发
 $ git checkout master
 $ git checkout -b feature/sync
 $ git push --set-upstream origin feature/sync
 
+# 开发过程中，如 master 有更新，则拉取 master 最新代码
 $ git pull origin master
-
 ```
+
 2、提测
 ```
 # 创建发布分支，提测 feature/updater 和 feature/sync 两个特性
@@ -25,8 +28,9 @@ $ git push --set-upstream origin release/v1.0.1
 $ git merge --no-ff feature/updater
 $ git merge --no-ff feature/sync
 
-# 提测过程中发现主干分支存在更新，同步最新 master 至 release/v1.0.1
 # 合并中若存在较大冲突需与相关开发配合解决冲突
+
+# 提测过程中，如 master 有更新，则拉取 master 最新代码
 $ git pull origin master
 ```
 
@@ -41,15 +45,15 @@ $ git branch -d release/v1.0.1
 
 4、修复线上 Bug
 ```
-# 基于 master[v1.0.1] 创建 hotfox/v1.0.1
+# 基于 master[v1.0.1] 创建 hotfix/PFWD-4340
 $ git checkout master
-$ git checkout -b hotfix/v1.0.1
-$ git push --set-upstream origin hotfix/v1.0.1
+$ git checkout -b hotfix/PFWD-4340
+$ git push --set-upstream origin hotfix/PFWD-4340
 
-# 基于 master[v1.0.1] 创建 release/hotfix-v1.0.1
+# 基于 master[v1.0.1] 创建 release/hotfix-PFWD-4340
 $ git checkout master
-$ git checkout -b release/hotfix-v1.0.1
-$ git push --set-upstream origin release/hotfix-v1.0.1
+$ git checkout -b release/hotfix-PFWD-4340
+$ git push --set-upstream origin release/hotfix-PFWD-4340
 ```
 
 
