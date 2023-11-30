@@ -1,13 +1,13 @@
 1、开发新特性
 ```
 # 开发 [升级器] 特性：
-# 从 master 分支新建 feature/updater 分支，在此分支上开发 [升级器] 特性
+# 基于 master 分支新建 feature/updater 分支，在此分支上开发 [升级器] 特性
 $ git checkout master
 $ git checkout -b feature/updater
 $ git push --set-upstream origin feature/updater
 
 # 开发 [同步器] 特性：
-# 从 master 分支新建 feature/sync 分支，在此分支上开发 [同步器] 特性
+# 基于 master 分支新建 feature/sync 分支，在此分支上开发 [同步器] 特性
 $ git checkout master
 $ git checkout -b feature/sync
 $ git push --set-upstream origin feature/sync
@@ -18,12 +18,17 @@ $ git pull origin master
 
 2、提测
 ```
-# 从 master 分支新建 release/v1.0.1 分支，提测 feature/updater 和 feature/sync 两个特性
+# 基于 master 分支新建 release/v1.0.1 分支，提测 feature/updater 和 feature/sync 两个特性
 $ git checkout master
 $ git checkout -b release/v1.0.1
 $ git push --set-upstream origin release/v1.0.1
 
-# 将 feature/updater 和 feature/sync 合并至 release/v1.0.1
+# 测试过程中，在 feature 分支上修复 Bug，并更新到 release 分支
+$ git checkout release/v1.0.1
+$ git pull origin feature/updater
+$ git pull origin feature/sync
+
+# 将 feature/updater 和 feature/sync 合并至 release/v1.0.1，可能需要处理两个特性分支的代码冲突
 $ git merge --no-ff feature/updater
 $ git merge --no-ff feature/sync
 
