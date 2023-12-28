@@ -51,7 +51,8 @@ $ git pull origin master
 $ git checkout master
 $ git merge --no-ff release/v1.0.1
 $ git tag -a v1.0.1
-$ git branch -d release/v1.0.1
+$ git branch -d feature/updater
+$ git branch -d feature/sync
 ```
 
 4、修复线上 Bug
