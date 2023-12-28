@@ -1,5 +1,5 @@
 #### 分支
-AoneFlow 只使用三种分支类型：主干分支（master）、特性分支（如：feature/vip-center）、发布分支（release/v1.0.0），以及三条基本规则。
+AoneFlow 只使用三种分支类型：主干分支（master）、特性分支（如：feature/updater）、发布分支（release/v1.0.0），以及三条基本规则。
 
 #### 基本规则
 - 1、开始工作前，从主干创建特性分支；
